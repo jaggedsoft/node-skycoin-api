@@ -2,13 +2,13 @@ module.exports = function() {
     'use strict';
     const axios = require('axios');
     const defaults = {
+        node: 'https://node.skycoin.net/api/',
         proxy: false,
-        timeout: 5000
+        timeout: 60000
     };
-    let options = {};
+    let options = defaults;
 
     async function request(url, data = {}, flags = {}) {
-        const base = 'https://node.skycoin.net/api/';
         const userAgent = 'Mozilla/4.0 (compatible; Node Skycoin API)';
         const contentType = 'application/x-www-form-urlencoded';
         let headers = {
@@ -21,7 +21,7 @@ module.exports = function() {
             headers: headers,
             timeout: options.timeout,
             proxy: options.proxy,
-            baseURL: base
+            baseURL: options.node
         };
         if ( typeof flags.method !== 'undefined' ) params.method = flags.method; // GET POST PUT DELETE
         if ( params.method == 'GET' ) {
