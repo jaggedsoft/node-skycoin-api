@@ -24,6 +24,14 @@ npm install skycoin
 // Accepts single address, or array of addresses. divide balance by 1e6
 console.log(await api.balance('2CfGyhRyvT8Y4uF9CqoKBgYZuRrgKfCP2nj'));
 ```
+<details>
+ <summary>View Response</summary>
+
+```js
+{ confirmed: { coins: 265000000, hours: 108286 },
+  predicted: { coins: 265000000, hours: 108286 } }
+```
+</details>
 
 #### Get node version info
 ```js
