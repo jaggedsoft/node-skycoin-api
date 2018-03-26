@@ -1,8 +1,10 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/jaggedsoft/node-skycoin-api.svg?maxAge=2400)](#)
 [![npm downloads](https://img.shields.io/npm/dt/skycoin.svg?maxAge=7200)](https://www.npmjs.com/package/skycoin)
 
+[![NPM](https://nodei.co/npm/skycoin.png?compact=true)](https://npmjs.org/package/skycoin)
 # Node Skycoin API
-This project is designed to help you make your own projects that interact with the [Skycoin API](https://github.com/skycoin/skycoin/blob/develop/src/gui/README.md). You can query the rich list, total coin supply, download block information, view metadata, get account balances and more. This project seeks to have complete API coverage including wallet functionality and sending transactions. (Currently an experimental release. Wallet functionality to be added later)
+This project is designed to help you make your own projects that interact with the [Skycoin API](https://github.com/skycoin/skycoin/blob/develop/src/gui/README.md). You can query the rich list, total coin supply, download block information, view metadata, get account balances and more. This project seeks to have complete API coverage including wallet functionality and sending transactions.
+> (Currently an experimental release. Wallet functionality will be added later)
 
 #### Installation
 ```
@@ -11,12 +13,20 @@ npm install skycoin
 
 
 #### Getting started
-> When using async/await, your entire program must be wrapped in an async block like so:
+> When using async/await, your entire program must be wrapped in an async block:
 ```js
 (async () => {
-  const api = require('skycoin');
-  console.log(await api.version());
+    const api = require('skycoin');
+    console.log(await api.version());
 })();
+```
+
+#### Setting optional parameters
+```js
+api.options({
+    node: 'http://127.0.0.1:6420/', // Change to alternative node (or your own)
+    proxy: { host: '127.0.0.1', port: 3128 }
+});
 ```
 
 #### Get wallet balance
